@@ -41,7 +41,7 @@ public class HashMaps {
 		
 		System.out.println();
 		
-		// Search or Lookup for value corresponding to yhe key
+		// Search or Lookup for value corresponding to the key
 		System.out.println(map.get("India"));
 		System.out.println(map.get("Indonesia"));
 		

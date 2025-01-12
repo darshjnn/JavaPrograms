@@ -27,5 +27,7 @@ public class CountSetBits {
 		System.out.print("Enter the number to count set bits: ");
 		int n = sc.nextInt();
 		System.out.println("No. of set bits: " + countSetBits(n));
+
+		sc.close();
 	}
 }

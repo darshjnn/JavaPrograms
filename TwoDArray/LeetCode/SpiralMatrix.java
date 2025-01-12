@@ -12,46 +12,62 @@ Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 
 */
 
-package TwoDArray;
+package TwoDArray.LeetCode;
+
+import java.util.List;
+import java.util.LinkedList;
 
 public class SpiralMatrix {
-	public static void spiralOrder(int[][] matrix) {
+	public static List<Integer> spiralOrder(int[][] matrix) {
+		List<Integer> spiralOrder = new LinkedList<>();
+		
+		int row = matrix.length;
+		int col = matrix[0].length;
 		int startRow = 0;
 		int startCol = 0;
-		int endRow = matrix.length - 1;
-		int endCol = matrix[0].length - 1;
+		int endRow = row - 1;
+		int endCol = col - 1;
+
 		while (startRow <= endRow && startCol <= endCol) {
 			// Top
 			for (int j = startCol; j <= endCol; j++) {
-				System.out.print(matrix[startRow][j] + " ");
+				spiralOrder.add(matrix[startRow][j]);
 			}
+
 			// Right
 			for (int i = (startRow + 1); i <= endRow; i++) {
-				System.out.print(matrix[i][endCol] + " ");
+				spiralOrder.add(matrix[i][endCol]);
 			}
+
 			// Bottom
 			for (int j = (endCol - 1); j >= startCol; j--) {
 				if (startRow == endRow) {
 					break;
 				}
-				System.out.print(matrix[endRow][j] + " ");
+				spiralOrder.add(matrix[endRow][j]);
 			}
+
 			// Left
 			for (int i = (endRow - 1); i >= (startRow + 1); i--) {
 				if (startCol == endCol) {
 					break;
 				}
-				System.out.print(matrix[i][startCol] + " ");
+				spiralOrder.add(matrix[i][startCol]);
 			}
+
 			++startRow;
-			++startCol;
 			--endRow;
+
+			++startCol;
 			--endCol;
 		}
+		
+		return spiralOrder;
 	}
 	
 	public static void main(String[] args) {
 		int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
-		spiralOrder(matrix);
+		List<Integer> spiralOrder = spiralOrder(matrix);
+		System.out.println(spiralOrder);
 	}
 }

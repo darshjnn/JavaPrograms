@@ -19,7 +19,7 @@ Output: 1
 
 */
 
-package BitManipulation;
+package BitManipulation.LeetCode;
 
 public class SingleNumber {
 	private static int singleNumber(int[] nums) {

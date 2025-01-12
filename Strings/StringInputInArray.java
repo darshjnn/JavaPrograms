@@ -3,7 +3,7 @@ package Strings;
 import java.util.*;
 
 public class StringInputInArray {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         
         try(Scanner sc = new Scanner(System.in)){
             int s, i;
@@ -11,9 +11,9 @@ public class StringInputInArray {
             System.out.print("Enter Size of the array: ");
             s = sc.nextInt();
             
-            String ar[] = new String[s]; 
+            String[] ar = new String[s];
             
-            System.out.println("Enter elemnts: ");
+            System.out.println("Enter elements: ");
             for(i=0; i<s; i++){
                 ar[i] = sc.next();
             }

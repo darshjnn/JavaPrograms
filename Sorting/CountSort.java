@@ -13,37 +13,35 @@ Therefore, Integer array must be given as arguments.
 */
 
 /*
-Bubble Sort
+Count Sort
 
-Large element come to the end of the array by swapping with adjacent element.
+It can give Time Complexity of O(n), for some case.
 
-Time Complexity: O(n^2).
-
-swap variable inside the first loop optimizes the Bubble Sort for best case scenario, viz, for
-the sorted array.
+It is used for positive numbers, and where, range of elements of array is small.
 
 */
 
 package Sorting;
 
-public class BubbleSort {
-	public static void bubbleSort(int[] arr) {
-		int n = arr.length;
+public class CountSort {
+	public static void countSort(int[] arr) {
+		int max = arr[0];
 		
-		for (int i = 0; i < n - 1; i++) {
-			int swap = 0;
-			
-			for (int j = 0; j < n - i - 1; j++) {
-				if (arr[j] > arr[j + 1]) {
-					++swap;
-					int temp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp;
-				}
-			}
-			
-			if (swap == 0) {
-				return;
+		for (int i : arr) {
+			max = Math.max(max, i);
+		}
+		
+		int[] count = new int[max + 1];
+		
+		for (int i : arr) {
+			++count[i];
+		}
+		
+		int j = 0;
+		for (int i = 0; i < count.length; i++) {
+			while (count[i] > 0) {
+				arr[j++] = i;
+				--count[i];
 			}
 		}
 	}
@@ -57,12 +55,11 @@ public class BubbleSort {
 		}
 		System.out.println("\n");
 		
-		bubbleSort(arr);
+		countSort(arr);
 		
 		System.out.println("Sorted Array: ");
 		for (int i : arr) {
 			System.out.print(i + "  ");
 		}
-		
 	}
 }

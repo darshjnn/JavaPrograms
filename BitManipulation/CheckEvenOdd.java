@@ -27,5 +27,7 @@ public class CheckEvenOdd {
 		System.out.print("Enter the number to check Even or Odd: ");
 		int n = sc.nextInt();
 		checkEvenOdd(n);
+
+		sc.close();
 	}
 }

@@ -13,38 +13,30 @@ Therefore, Integer array must be given as arguments.
 */
 
 /*
-Bubble Sort
+Insertion Sort
 
-Large element come to the end of the array by swapping with adjacent element.
+Pick an element from the unsorted part, and place it at its correct position in the sorted part.
 
-Time Complexity: O(n^2).
-
-swap variable inside the first loop optimizes the Bubble Sort for best case scenario, viz, for
-the sorted array.
+Time Complexity: O(n^2)
 
 */
 
 package Sorting;
 
-public class BubbleSort {
-	public static void bubbleSort(int[] arr) {
+public class InsertionSort {
+	public static void insertionSort(int[] arr) {
 		int n = arr.length;
 		
-		for (int i = 0; i < n - 1; i++) {
-			int swap = 0;
+		for (int i = 1; i < n; i++) {
+			int curr = arr[i];
+			int prev = i - 1;
 			
-			for (int j = 0; j < n - i - 1; j++) {
-				if (arr[j] > arr[j + 1]) {
-					++swap;
-					int temp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp;
-				}
+			while (prev >= 0 && arr[prev] > curr) {
+				arr[prev + 1] = arr[prev];
+				--prev;
 			}
 			
-			if (swap == 0) {
-				return;
-			}
+			arr[prev + 1] = curr;
 		}
 	}
 	
@@ -57,12 +49,11 @@ public class BubbleSort {
 		}
 		System.out.println("\n");
 		
-		bubbleSort(arr);
+		insertionSort(arr);
 		
 		System.out.println("Sorted Array: ");
 		for (int i : arr) {
 			System.out.print(i + "  ");
 		}
-		
 	}
 }

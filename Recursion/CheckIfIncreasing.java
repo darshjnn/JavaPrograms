@@ -1,33 +1,32 @@
-//To check if the array is sorted or not
-//Time Complexity: O(n)
+/*
+Check if the Array is Sorted
+
+*/
 
 package Recursion;
 
+import java.util.*;
+
 public class CheckIfIncreasing {
-    public static boolean isSorted(int arr[], int index){
-        if (index == arr.length - 1){
-            return true;
-        }
-        
-        if (!isSorted(arr, index+1)){
-            return false;
-        }
-        return arr[index] < arr[index + 1];
-        
-    //OR
-    //     if (arr[index] < arr[index + 1]){
-    //         return isSorted(arr, index+1);
-    //     } else{
-    //         return false;
-    //     }
-    }
-    public static void main(String args[]){
-        int arr[] = {1,2,3,4,5,6,7,8};
-        boolean a = isSorted(arr, 0);
-        if(a){
-            System.out.println("Array is Strictly in increasing order");
-        } else {
-            System.out.println("Array is Strictly NOT in increasing order");
-        }
-    }
+	public static boolean isIncreasing(int[] arr, int index) {
+		if (index < 0) {
+			return false;
+		}
+		
+		if (index >= arr.length - 1) {
+			return true;
+		}
+		
+		if (arr[index] <= arr[index + 1]) {
+			return isIncreasing(arr, index + 1);
+		}
+		
+		return false;
+	}
+	
+	public static void main(String[] args) {
+		int[] arr = {1, 2, 3, 5, 6, 7, 7, 8, 9};
+		System.out.println("\n" + Arrays.toString(arr) + " \n");
+		System.out.println("Given array is in increasing order? : " + isIncreasing(arr, 0));
+	}
 }

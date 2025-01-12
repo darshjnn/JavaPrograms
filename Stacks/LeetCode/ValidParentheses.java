@@ -24,15 +24,21 @@ Output: false
 
 */
 
-package LeetCode;
+package Stacks.LeetCode;
 
 import java.util.Stack;
 
 public class ValidParentheses {
-	public static boolean isValid(String s) {
+	public static boolean isValid(String str) {
+		if (str.length() % 2 != 0) {
+			System.out.println("LOL!");
+			return false;
+		}
+		
 		Stack<Character> stack = new Stack<>();
-		for (char c : s.toCharArray()) {
-			if (c == '(' || c == '{' || c == '[') {
+		
+		for (char c : str.toCharArray()) {
+			if (c == '(' || c == '[' || c == '{') {
 				stack.push(c);
 			} else {
 				if (stack.isEmpty()) {
@@ -48,11 +54,12 @@ public class ValidParentheses {
 				}
 			}
 		}
+		
 		return stack.isEmpty();
 	}
 	
 	public static void main(String[] args) {
-		String s = "()[]{()(]}";
+		String s = "()[]{()(]}}";
 		System.out.println(isValid(s));
 	}
 }

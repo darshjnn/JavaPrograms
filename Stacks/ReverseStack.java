@@ -26,27 +26,27 @@ public class ReverseStack {
     }
     
     public static void main(String[] args) {
-        Stack<Object> list = new Stack<>();
-        list.push(1);
-        list.push(2);
-        list.push(3);
-        list.push(4);
+        Stack<Object> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
         
-        while (!list.isEmpty()) {
-            System.out.print(list.peek() + " ");
-            list.pop();
+        while (!stack.isEmpty()) {
+            System.out.print(stack.peek() + " ");
+            stack.pop();
         }
         System.out.println();
         
-        list.push(1);
-        list.push(2);
-        list.push(3);
-        list.push(4);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
         
-        reverseStack(list);
-        while (!list.isEmpty()) {
-            System.out.print(list.peek() + " ");
-            list.pop();
+        reverseStack(stack);
+        while (!stack.isEmpty()) {
+            System.out.print(stack.peek() + " ");
+            stack.pop();
         }
         System.out.println();
     }

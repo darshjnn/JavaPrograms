@@ -27,7 +27,8 @@ public class Subarrays {
 	}
 	
 	public static void main(String[] args) {
-		int[] arr = {1, 2, 3, 4, 5};
+//		int[] arr = {1, 2, 3, 4, 5};
+		int[] arr = { 2, 3};
 		subArrays(arr);
 	}
 }

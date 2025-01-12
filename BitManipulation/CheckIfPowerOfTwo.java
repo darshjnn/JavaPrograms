@@ -13,5 +13,7 @@ public class CheckIfPowerOfTwo {
 		System.out.print("Enter number to check if it is power of 2: ");
 		int n = sc.nextInt();
 		System.out.println(isPowerOfTwo(n));
+
+		sc.close();
 	}
 }

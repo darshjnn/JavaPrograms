@@ -38,20 +38,23 @@ stockSpanner.next(85);  // return 6
 
 */
 
-package LeetCode;
+package Stacks.LeetCode;
 
 import java.util.Stack;
 
 public class OnlineStockSpan {
 	static class StockSpanner {
-		Stack<int[]> stock = new Stack<>();
+		Stack<int[]> stack = new Stack<>();
 		
 		public int next(int price) {
 			int ans = 1;
-			while (!stock.isEmpty() && price >= stock.peek()[0]) {
-				ans += stock.pop()[1];
+			
+			while (!stack.isEmpty() && price >= stack.peek()[0]) {
+				ans += stack.pop()[1];
 			}
-			stock.push(new int[]{price, ans});
+			
+			stack.push(new int[]{price, ans});
+			
 			return ans;
 		}
 	}
@@ -66,6 +69,5 @@ public class OnlineStockSpan {
 		stock.next(75);
 		System.out.println(stock.next(85));
 		System.out.println(stock.next(100));
-		
 	}
 }

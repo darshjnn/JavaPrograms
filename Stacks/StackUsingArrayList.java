@@ -1,6 +1,7 @@
-//Stack can be implemented using Array, ArrayList & Linked List
+// Stack can be implemented using Array, ArrayList & Linked List
 
-//Implementing Stack using Array List
+// Implementing Stack using Array List
+
 package Stacks;
 
 import java.util.ArrayList;

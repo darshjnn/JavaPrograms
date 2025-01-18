@@ -43,6 +43,10 @@ public class SingleLinkedList {
 		this.tail.next = newNode;
 		this.tail = newNode;
 	}
+
+	public void add(int data) {
+		this.addEnd(data);
+	}
 	
 	// Add element in Middle
 	public void addMid(int data, int index) {
@@ -248,7 +252,8 @@ public class SingleLinkedList {
 			return true;
 		}
 		
-		Node mid = this.getMid();
+		SingleLinkedList temp = this.copy();
+		Node mid = temp.getMid();
 		Node prev = null;
 		Node next;
 		while (mid != null) {
@@ -258,7 +263,7 @@ public class SingleLinkedList {
 			mid = next;
 		}
 		
-		Node left = this.head;
+		Node left = temp.head;
 		Node right = prev;
 		while (right != null && left != null) {
 			if (left.data != right.data) {

@@ -19,42 +19,45 @@ Output: 4
 package Arrays.LeetCode;
 
 public class LargestRectangle {
+	@SuppressWarnings("ALL")
 	public static int largestRectangleArea(int[] heights) {
 		int n = heights.length;
-		int ans = 0;
-		int[] nextSmallest = new int[n];
-		int[] prevSmallest = new int[n];
+		int[] nextSmallerLeft = new int[n];
+		int[] nextSmallerRight = new int[n];
 		
-		nextSmallest[n - 1] = n;
-		prevSmallest[0] = -1;
-		
+		// Calculating First Next Smaller Left
+		nextSmallerLeft[0] = -1;
 		for (int i = 1; i < n; i++) {
 			int prev = i - 1;
 			
-			while (prev >= 0 && heights[prev] >= heights[i]) {
-				prev = prevSmallest[prev];
+			while (prev >= 0 && heights[i] <= heights[prev]) {
+				prev = nextSmallerLeft[prev];
 			}
 			
-			prevSmallest[i] = prev;
+			nextSmallerLeft[i] = prev;
 		}
 		
-		for (int i = n - 2; i >= 0; i--) {
+		// Calculating First Next Smaller Right
+		nextSmallerRight[n - 1] = n;
+		for (int i = (n - 2); i >= 0; i--) {
 			int next = i + 1;
 			
-			while (next < n && heights[next] >= heights[i]) {
-				next = nextSmallest[next];
+			while (next < n && heights[i] <= heights[next]) {
+				next = nextSmallerRight[next];
 			}
 			
-			nextSmallest[i] = next;
+			nextSmallerRight[i] = next;
 		}
 		
+		// Calculating Max Area
+		int maxArea = 0;
 		for (int i = 0; i < n; i++) {
-			int height = heights[i];
-			int width = nextSmallest[i] - prevSmallest[i] - 1;
-			ans = Math.max(ans, height * width);
+			int width = nextSmallerRight[i] - nextSmallerLeft[i] - 1;
+			int area = heights[i] * width;
+			maxArea = Math.max(maxArea, area);
 		}
 		
-		return ans;
+		return maxArea;
 	}
 	
 	public static void main(String[] args) {

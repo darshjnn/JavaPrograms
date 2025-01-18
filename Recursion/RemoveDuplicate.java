@@ -1,41 +1,31 @@
+/*
+Remove Duplicate Characters in a String
+
+*/
+
 package Recursion;
 
 public class RemoveDuplicate {
-    
-    public static boolean[] map = new boolean[26];
-    public static String newStr = "";
-    
-    public static String removeDups(String str, int index){
-        if (index == str.length()){
-            return newStr;
+    public static StringBuilder helper(String str, int index, boolean[] flag) {
+        if (index == str.length()) {
+            return new StringBuilder();
         }
         
-        if (map[str.charAt(index) - 'a']){         // OR if (map[str.charAt(index) - 'a'] == true)
-        removeDups(str, index + 1);
-    } else {
-        map[str.charAt(index) - 'a'] = true;
-        newStr += str.charAt(index);
-        removeDups(str, index + 1);
+        if (flag[str.charAt(index) - 'a']) {
+            return helper(str, (index + 1), flag);
+        }
+        
+        flag[str.charAt(index) - 'a'] = true;
+        return helper(str, (index + 1), flag).append(str.charAt(index));
     }
-    return newStr;
+    
+    public static String removeDuplicates(String str) {
+        boolean[] flag = new boolean[26];
+        return helper(str, 0, flag).reverse().toString();
+    }
+    
+    public static void main(String[] args) {
+        String str = "cbacdcbc";
+        System.out.println(removeDuplicates(str));
+    }
 }
-public static void main(String args[]){
-    String str = "aabcdebcdefgh";
-    System.out.println(removeDups(str, 0));
-}
-}
-
-
-// OR
-// public static String removeDuplicates(String str, int idx, boolean present[]) {
-//     if(idx == str.length()) {
-//         return ""; 
-//     }
-//     char curr = str.charAt(idx); 
-//     if(present[curr-'a']) {
-//         return removeDuplicates(str, idx+1, present); 
-//     } else {
-//         present[curr-'a'] = true;
-//         return curr + removeDuplicates(str, idx+1, present); 
-//     }
-// }

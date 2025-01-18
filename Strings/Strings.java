@@ -12,6 +12,7 @@ package Strings;
 import java.util.Scanner;
 
 public class Strings {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		String name1 = "Tony";
 		String name2 = "Tony";
@@ -95,8 +96,8 @@ public class Strings {
 		String largest = strArr[0];
 		/*
 		Time Complexity: O(n * N)
-			where, n = length of largest string
-				   N = length of string array
+			where,  n = length of largest string
+				    N = length of string array
 		*/
 		for (String s : strArr) {
 			if (largest.compareToIgnoreCase(s) < 0) {
@@ -104,5 +105,7 @@ public class Strings {
 			}
 		}
 		System.out.println("Largest Lexicographical string: " + largest + " \n");
+
+		sc.close();
 	}
 }

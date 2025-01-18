@@ -21,56 +21,57 @@ package Stacks.LeetCode;
 import java.util.Stack;
 
 public class LargestRectangle {
+	@SuppressWarnings("DuplicatedCode")
 	public static int largestRectangleArea(int[] heights) {
 		int n = heights.length;
 		int[] nextSmallerLeft = new int[n];
 		int[] nextSmallerRight = new int[n];
-		
-		
+
 		// Calculating First Next Smaller Left
 		Stack<Integer> stack = new Stack<>();
 		for (int i = 0; i < n; i++) {
 			while (!stack.isEmpty() && heights[i] <= heights[stack.peek()]) {
 				stack.pop();
 			}
-			
+
 			if (stack.isEmpty()) {
 				nextSmallerLeft[i] = -1;
 			} else {
 				nextSmallerLeft[i] = stack.peek();
 			}
-			
+
 			stack.push(i);
 		}
-		
+
 		// Calculating First Next Smaller Right
 		stack = new Stack<>();
 		for (int i = (n - 1); i >= 0; i--) {
 			while (!stack.isEmpty() && heights[i] <= heights[stack.peek()]) {
 				stack.pop();
 			}
-			
+
 			if (stack.isEmpty()) {
 				nextSmallerRight[i] = n;
 			} else {
 				nextSmallerRight[i] = stack.peek();
 			}
-			
+
 			stack.push(i);
 		}
-		
-		// Calculating Max Area;
+
+		// Calculating Max Area
 		int maxArea = 0;
 		for (int i = 0; i < n; i++) {
-			int area = heights[i] * (nextSmallerRight[i] - nextSmallerLeft[i] - 1);
+			int width = nextSmallerRight[i] - nextSmallerLeft[i] - 1;
+			int area = heights[i] * width;
 			maxArea = Math.max(maxArea, area);
 		}
-		
+
 		return maxArea;
 	}
-	
+
 	public static void main(String[] args) {
-		int[] heights = {2, 1, 5, 6, 2, 3};
+		int[] heights = { 2, 1, 5, 6, 2, 3 };
 		System.out.println(largestRectangleArea(heights));
 	}
 }

@@ -1,7 +1,23 @@
+/*
+Quick Sort
+
+Based on Divide & Conquer Approach.
+It works on Pivot & Partition Approach.
+
+Pivot: The element around which the array is rotated.
+
+Time Complexity: Worst = O(n^2)
+                Average: O(nlogn)
+
+Space Complexity: O(1)
+
+Worst occurs when pivot is always the SMALLEST or the LARGEST element.
+
+*/
+
 package Sorting;
 
-//Time Complexity: Worst = O(n^2);    Average: O(nlogn)
-//IMPORTANT: Worst occurs when pivot is always the SMALLEST or the LARGEST element.
+import java.util.Arrays;
 
 public class QuickSort {
     public static int partition(int[] arr, int low, int high) {
@@ -17,6 +33,7 @@ public class QuickSort {
                 arr[j] = temp;
             }
         }
+
         i++;
         int temp = arr[i];
         arr[i] = arr[high];
@@ -38,17 +55,12 @@ public class QuickSort {
         int n = arr.length;
 
         System.out.println("Array before Sorting: ");
-        for (int j : arr) {
-            System.out.print(" " + j + " ");
-        }
-
-        System.out.println();
+        System.out.println(Arrays.toString(arr));
         System.out.println();
 
         quickSort(arr, 0, (n - 1));
+
         System.out.println("Array after Sorting: ");
-        for (int j : arr) {
-            System.out.print(" " + j + " ");
-        }
+        System.out.println(Arrays.toString(arr));
     }
 }

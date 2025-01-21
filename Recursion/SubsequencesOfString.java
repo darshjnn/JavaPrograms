@@ -1,24 +1,41 @@
-//Time Complexity: O(2^n)
+/*
+Generate all Subsequences of a String.
+
+Time Complexity: O(2^n)
+
+*/
 
 package Recursion;
 
+import java.util.*;
+
 public class SubsequencesOfString {
-    
-    public static void Subsequences(String str, int index, String newstr){
-        if (index == str.length()){
-            System.out.println(newstr);
+    static void sub(String s, int i, StringBuilder sb, ArrayList<String> l) {
+        if (i < 0) {
             return;
         }
-        //to be in subsequence
-        Subsequences(str, index+1, newstr + str.charAt(index));
         
-        //to not be in subsequence
-        Subsequences(str, index+1, newstr);
+        if (i >= s.length()) {
+            l.add(sb.toString());
+            return;
+        }
+
+        sb.append(s.charAt(i));
+        sub(s, i + 1, sb, l);
+        sb.deleteCharAt(sb.length() - 1);
+
+        sub(s, i + 1, sb, l);
+    }
+
+    public static ArrayList<String> subsequences(String str) {
+        ArrayList<String> result = new ArrayList<>();
+        sub(str, 0, new StringBuilder(), result);
+        return result;
     }
     
-    public static void main(String args[]){
-        String str = "abc";
-        Subsequences(str, 0, "");
+    public static void main(String[] args) {
+        String str = "abcd";
+        ArrayList<String> arr = subsequences(str);
+        System.out.println("\n" + Arrays.toString(arr.toArray()));
     }
-    
 }

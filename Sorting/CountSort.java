@@ -24,6 +24,7 @@ It is used for positive numbers, and where, range of elements of array is small.
 package Sorting;
 
 public class CountSort {
+	@SuppressWarnings("JavaExistingMethodCanBeUsed")
 	public static void countSort(int[] arr) {
 		int max = arr[0];
 		

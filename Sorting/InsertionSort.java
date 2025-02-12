@@ -15,7 +15,7 @@ Therefore, Integer array must be given as arguments.
 /*
 Insertion Sort
 
-Pick an element from the unsorted part, and place it at its correct position in the sorted part.
+Pick an element from the unsorted part, place it at its correct position in the sorted part.
 
 Time Complexity: O(n^2)
 

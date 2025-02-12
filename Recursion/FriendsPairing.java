@@ -6,8 +6,8 @@ Each friend can be paired only once. Find out the total number of ways in which 
 remain single or can be paired up.
 
 Example:
-Input  : n = 3
-Output : 4
+Input: n = 3
+Output: 4
 Explanation:
 {1}, {2}, {3} : all single
 {1}, {2, 3} : 2 and 3 paired but 1 is single.

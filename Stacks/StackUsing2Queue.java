@@ -1,4 +1,4 @@
-//Implementing Stack using 2 Queues
+// Implementing Stack using 2 Queues
 
 package Stacks;
 

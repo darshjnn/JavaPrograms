@@ -1,4 +1,4 @@
-//Implementing Queue using 2 Stacks
+// Implementing Queue using 2 Stacks
 
 package Queue;
 

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class BinaryTree {
     // Create a Binary Tree from an array
-    // Pointer is created in the form of single length array for tracking index.
+    // Pointer is created in the form of a single length array for tracking index.
     public Node buildTree(int[] arr, int[] pointer) {
         if (arr.length == 0 || arr.length <= pointer[0]) {
             return null;
@@ -112,6 +112,7 @@ public class BinaryTree {
     }
 
     // Minimum Depth of Tree
+    @SuppressWarnings("DuplicatedCode")
     int minDepth(Node root) {
         if (root == null) {
             return 0;
@@ -130,7 +131,7 @@ public class BinaryTree {
 
         return Math.min(left, right) + 1;
     }
-    
+
     // Count Number of Nodes
     int count(Node root) {
         if (root == null) {
@@ -169,7 +170,7 @@ public class BinaryTree {
         return Math.max(diameter, Math.max(leftDiameter, rightDiameter));
     }
 
-	// Diameter of Tree: Mentos Zindagi Approach -> Time Complexity: O(n)
+    // Diameter of Tree: Mentos Zindagi Approach -> Time Complexity: O(n)
     NodeInfo treeInfo(Node root) {
         if (root == null) {
             return new NodeInfo(0, 0);
@@ -185,7 +186,7 @@ public class BinaryTree {
         return new NodeInfo(height, diameter);
     }
 
-    // Check if given Tree is Subtree
+    // Check if the given Tree is Subtree
     boolean isIdentical(Node root1, Node root2) {
         if (root1 == null && root2 == null) {
             return true;
@@ -251,7 +252,7 @@ public class BinaryTree {
             System.out.print(map.get(i).data + "  ");
         }
     }
-    
+
     // Bottom View of Tree
     void bottomView(Node root) {
         if (root == null) {
@@ -374,7 +375,7 @@ public class BinaryTree {
         return root;
     }
 
-	// Minimum Distance Between Two Nodes in terms of Edges
+    // Minimum Distance Between Two Nodes in terms of Edges
     public int minDist(Node root, int p, int q) {
         if (root == null) {
             return Integer.MIN_VALUE;
@@ -386,7 +387,7 @@ public class BinaryTree {
 
         return pDist + qDist;
     }
-    
+
     public int getDist(Node root, int n) {
         if (root == null) {
             return -1;

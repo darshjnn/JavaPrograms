@@ -1,8 +1,8 @@
 /*
 Implementation of Binary Search Tree.
-All constructors for different nodes are in 'Node' package inside 'BinaryTree' package.
+All constructors for different nodes are in the 'Node' package inside the 'BinaryTree' package.
 
-Inorder Traversal of Binary SEarch Tree gives a sorted sequence of elements.
+Inorder Traversal of Binary Search Tree gives a sorted sequence of elements.
 
 */
 
@@ -116,7 +116,7 @@ public class BinarySearchTree {
         } else if (root.data > key) {
             root.left = delete(root.left, key);
         } else {
-            // Voila!!!
+            // Voilà!!!
             // Case 1: Leaf Node, i.e., No Child Exists
             if (root.left == null && root.right == null) {
                 return null;
@@ -129,7 +129,7 @@ public class BinarySearchTree {
                 return root.left;
             }
 
-            // Case 3: Both Child Exists
+            // Case 3: Both Child Exist
             Node inorderSuccessor = findInorderSuccessor(root.right);
             root.data = inorderSuccessor.data;
             root.right = this.delete(root.right, inorderSuccessor.data);
@@ -188,7 +188,7 @@ public class BinarySearchTree {
         }
 
         ArrayList<ArrayList<Integer>> paths = new ArrayList<>();
-        getPaths(root, new ArrayList<Integer>(), paths);
+        getPaths(root, new ArrayList<>(), paths);
 
         for (ArrayList<Integer> path : paths) {
             System.out.println(path);
@@ -233,7 +233,7 @@ public class BinarySearchTree {
     // Mirror/Invert a BST
     public Node invertTree(Node root) {
         if (root == null) {
-            return root;
+            return null;
         }
 
         Node left = this.invertTree(root.left);
@@ -340,7 +340,7 @@ public class BinarySearchTree {
         return this.createBST(merged, 0, (n + m - 2));
     }
 
-    // Size and Sum of largest BST in Binary Tree
+    // Size and Sum of the largest BST in Binary Tree
     public NodeInfo largestBST(Node root) {
         if (root == null) {
             return new NodeInfo(true, 0, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
@@ -354,12 +354,12 @@ public class BinarySearchTree {
         int min = Math.min(root.data, Math.min(left.min, right.min));
         int max = Math.max(root.data, Math.max(left.max, right.max));
 
-        // Check if root also fits in the BST:
+        // Check if the root also fits in the BST:
         if (root.data <= left.max || root.data >= right.min) {
             return new NodeInfo(false, size, sum, min, max);
         }
 
-        // If root fits in the BST: 
+        // If the root fits in the BST:
         if (left.isBST && right.isBST) {
             size = Math.max(size, (left.size + right.size + 1));
             sum = Math.max(sum, (root.data + left.sum + right.sum));

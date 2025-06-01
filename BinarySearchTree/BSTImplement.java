@@ -77,7 +77,7 @@ public class BSTImplement {
         System.out.println("\nMerged BST: ");
         bst.levelOrder(merged);
         
-        // Size and Sum of largest BST in Binary Tree
+        // Size and Sum of the largest BST in Binary Tree
         Node root2 = new Node(50);
 		root2.left = new Node(30);
 		root2.left.left = new Node(5);

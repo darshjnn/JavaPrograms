@@ -25,13 +25,12 @@ import BinaryTree.BinaryTree;
 public class InvertBinaryTree {
     public static Node invertTree(Node root) {
         if (root == null) {
-            return root;
+            return null;
         }
 
         Node left = invertTree(root.left);
-        Node right = invertTree(root.right);
 
-        root.left = right;
+        root.left = invertTree(root.right);
         root.right = left;
 
         return root;

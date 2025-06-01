@@ -1,6 +1,6 @@
 /*
 Implementation of Binary Tree.
-All constructors for different nodes are in 'Node' package.
+All constructors for different nodes are in the 'Node' package.
 
 */
 
@@ -15,7 +15,7 @@ public class BinaryTreeImplement {
         int[] arr = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
 
         // Create Binary Tree
-        // Pointer is passed in the form of single length array for tracking index.
+        // Pointer is passed in the form of a single length array for tracking index.
         Node root = tree.buildTree(arr, new int[] { 0 });
 
         // Preorder 
@@ -54,7 +54,7 @@ public class BinaryTreeImplement {
         System.out.println("\nDiameter (approach 2): " + rootInfo.diameter);
         System.out.println("Height (approach 2): " + rootInfo.height);
 
-        // Check if the tree is subtree of another tree
+        // Check if the tree is a subtree of another tree
         Node root2 = new Node(2);
         root2.left = new Node(4);
         root2.right = new Node(5);
@@ -70,11 +70,13 @@ public class BinaryTreeImplement {
 
         // All Nodes at Kth level
         System.out.print("\n\nAll Nodes at 3rd level: ");
-        tree.kthLevel(root, 3);
+        int level = 3;
+        tree.kthLevel(root, level);
 
         // Lowest Common Ancestor: Approach 1
         System.out.print("\n\nLowest Common Ancestor (approach 1): ");
-        System.out.println(tree.lowestCommonAncestor1(root, 4, 5));
+        int p = 4, q = 5;
+        System.out.println(tree.lowestCommonAncestor1(root, p, q));
 
         // Lowest Common Ancestor: Approach 1
         System.out.print("\nLowest Common Ancestor (approach 2): ");

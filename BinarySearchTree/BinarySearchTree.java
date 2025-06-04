@@ -122,14 +122,14 @@ public class BinarySearchTree {
                 return null;
             }
 
-            // Case 2: Single Child Exists
+            // Case 2: Only a Single Child Exists
             if (root.left == null) {
                 return root.right;
             } else if (root.right == null) {
                 return root.left;
             }
 
-            // Case 3: Both Child Exist
+            // Case 3: Both Children Exist
             Node inorderSuccessor = findInorderSuccessor(root.right);
             root.data = inorderSuccessor.data;
             root.right = this.delete(root.right, inorderSuccessor.data);

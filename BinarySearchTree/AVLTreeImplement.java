@@ -13,5 +13,11 @@ public class AVLTreeImplement {
 		}
 		
 		tree.levelOrder(root);
+		
+		// Delete a Node
+		int key = 50;
+		System.out.println("\nDeleting node: " + key);
+		root = tree.deleteNode(root, key);
+		tree.levelOrder(root);
 	}
 }

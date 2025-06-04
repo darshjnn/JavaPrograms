@@ -73,7 +73,7 @@ public class MergeKSortedLists {
 		
 	}
 	
-	// Aam Zindagi: Brute Force Approach - O(k * n), k = no. of lists, n = no. of nodes
+	// Aam Zindagi: Brute Force Approach - O(k * n), k = no. of lists, n = no. Of nodes
 	public static Node bruteMergeKLists(Node[] lists) {
         if (lists.length == 0) {
             System.out.println("Empty Set of Lists...");

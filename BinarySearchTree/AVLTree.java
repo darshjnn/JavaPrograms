@@ -81,7 +81,7 @@ public class AVLTree {
 		}
 		
 		// Update height of the Current Node
-		root.height = Math.max(this.height(root.left), this.height(root.right)) + 1;
+		root.height = 1 + Math.max(this.height(root.left), this.height(root.right));
 		
 		// Get the Balance factor of the Current Node
 		int balanceFactor = this.balanceFactor(root);
@@ -111,6 +111,81 @@ public class AVLTree {
 		return root;
 	}
 	
+	// Delete a Node
+	public AVLNode deleteNode(AVLNode root, int key) {
+		if (root == null) {
+			return null;
+		}
+		
+		if (key < root.data) {
+			root.left = this.deleteNode(root.left, key);
+		} else if (key > root.data) {
+			root.right = this.deleteNode(root.right, key);
+		} else {
+			// Voilà!!!
+			if (root.left == null && root.right == null) {
+				// Case 1: Node with no child, i.e., Leaf Node
+				root = null;
+			} else if (root.left == null) {
+				// Case 2: Node with only a right child
+				root = root.right;
+			} else if (root.right == null) {
+				// Case 3: Node with only a left child
+				root = root.left;
+			} else {
+				// Case 4: Both children exist
+				AVLNode inorderSuccessor = this.getInorderSuccessor(root.right);
+				root.data = inorderSuccessor.data;
+				root.right = this.deleteNode(root.right, inorderSuccessor.data);
+			}
+		}
+		
+		// Return if the tree had only one child
+		if (root == null) {
+			return null;
+		}
+		
+		// Update the height of the current node
+		root.height = 1 + Math.max(this.height(root.left), this.height(root.right));
+		
+		// Get the Balance factor
+		int balanceFactor = this.balanceFactor(root);
+		
+		// Left-Left Case: Right rotation
+		if (balanceFactor > 1 && this.balanceFactor(root.left) >= 0) {
+			return this.rightRotate(root);
+		}
+		
+		// Right-Right Case: Left rotation
+		if (balanceFactor < -1 && this.balanceFactor(root.right) <= 0) {
+			return this.leftRotate(root);
+		}
+		
+		// Left-Right Case: Left Rotation -> Right rotation
+		if (balanceFactor > 1 && this.balanceFactor(root.left) < 0) {
+			root.left = this.leftRotate(root.left);
+			return this.rightRotate(root);
+		}
+		
+		// Right-left Case: Right rotation -> Left Rotation
+		if(balanceFactor < -1 && this.balanceFactor(root.right) > 0) {
+			root.right = this.rightRotate(root.right);
+			return this.leftRotate(root);
+		}
+		
+		return root;
+	}
+	
+	// Get Inorder Successor of a Node
+	//	Inorder successor in BST is left most node in right subtree
+	public AVLNode getInorderSuccessor(AVLNode root) {
+		while (root.left != null) {
+			root = root.left;
+		}
+		
+		return root;
+	}
+	
 	// Level Order Traversal
 	public void levelOrder(AVLNode root) {
 		if (root == null) {
@@ -128,7 +203,7 @@ public class AVLTree {
 				if (curr.left != null) {
 					q.offer(curr.left);
 				}
-				if (curr.right !=null) {
+				if (curr.right != null) {
 					q.offer(curr.right);
 				}
 			} else {

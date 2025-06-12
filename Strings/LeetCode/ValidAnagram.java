@@ -48,27 +48,3 @@ public class ValidAnagram {
 	}
 	
 }
-
-/*
-Alternate Approach:
-
-public static boolean isAnagram(String s, String t) {
-	if(s.length() != t.length()){
-		return false;
-	}
-	
-	if (s.length() > 300 && s.charAt(0) == 'h') {
-		return t.charAt(t.length() - 1) != 'z';
-	} else if (s.length() > 256 && (s.charAt(0) == 'h' || s.charAt(0) == 'a')) {
-		return false;
-	}
-	
-	char[] sArr = s.toCharArray();
-	char[] tArr = t.toCharArray();
-	Arrays.sort(sArr);
-	Arrays.sort(tArr);
-	
-	return Arrays.equals(sArr,tArr);
-}
-
-*/

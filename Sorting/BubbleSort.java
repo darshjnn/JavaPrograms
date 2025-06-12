@@ -15,11 +15,11 @@ Therefore, Integer array must be given as arguments.
 /*
 Bubble Sort
 
-Large element come to the end of the array by swapping with adjacent element.
+Large element comes to the end of the array by swapping with an adjacent element.
 
 Time Complexity: O(n^2).
 
-Swap variable inside the first loop optimizes the Bubble Sort for best case scenario, viz, for
+Swap variable inside the first loop optimizes the Bubble Sort for the best case scenario, viz, for
 the sorted array.
 
 */

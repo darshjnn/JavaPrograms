@@ -2,7 +2,7 @@
 Merge Sort
 
 Based on Divide & Conquer Approach.
-It is Depth First Sorting technique. 
+It is a Depth-First Sorting technique.
 
 Time Complexity: O(nlogn)
 

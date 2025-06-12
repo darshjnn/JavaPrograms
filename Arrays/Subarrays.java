@@ -1,7 +1,7 @@
 /*
-Print all Sub-arrays
+Print all Subarrays
 
-Total no. of subarrays = n(n + 1) / 2
+Total number of subarrays = n(n + 1) / 2
 
 */
 

@@ -17,7 +17,7 @@ Count Sort
 
 It can give Time Complexity of O(n), for some case.
 
-It is used for positive numbers, and where, range of elements of array is small.
+It is used for positive numbers, and where the range of elements in an array is small.
 
 */
 

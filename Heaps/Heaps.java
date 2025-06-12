@@ -33,8 +33,8 @@ Indexes of children node will be:
 	Left child: 2i + 1
 	Right child: 2i + 2
 
-Heapify is the process of creating a heap data structure from a binary tree. It is used 
-to create a Min-Heap or a Max-Heap.
+Heapify is the process of creating a heap data structure from a binary tree. It is used to
+create a Min-Heap or a Max-Heap.
 
 */
 

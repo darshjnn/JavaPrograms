@@ -1,14 +1,18 @@
 /*
-LinkedHashMaps maintains the order of insertion of elements., which not in the case of HashMaps.
+LinkedHashMaps maintains the insertion order of elements, which is not in the case of HashMaps.
+Performance of LinkedHashMaps in less than HashMaps because of the operations performed to
+maintain the insertion order of the elements; although, time complexity remains the same.
+
 In TreeMaps, keys are sorted, due to which Time Complexity of insertion, deletion and getting the
 element node is O(logn), which is O(1) or O(lambda) in case of HashMaps or LinkedHashMaps.
 
-Worst Time Complexity of HashMaps can be O(n) in some rare cases when all the nodes are added on
-the same bucket index. But, in most cases, it is O(1) or O(lambda).
+The Worst Time Complexity of HashMaps can be O(n) in some rare cases when all the nodes are added
+on the same bucket index. But in most cases, it is O(1) or O(lambda).
 
 Singly Linked Lists are used to implement HashMaps.
 Doubly Linked Lists are used to implement LinkedHashMaps.
-Red Black Trees are used to implement TreeMaps.
+Red-Black Trees are used to implement TreeMaps.
+
 */
 
 
@@ -32,7 +36,7 @@ public class HashMaps {
 		// If the key is already present, then it updates that key with new value.
 		map.put("France", 55);
 		
-		// Search or Lookup for key
+		// Search or Lookup for a key
 		if (map.containsKey("India")) {
 			System.out.println("Key is present");
 		} else {

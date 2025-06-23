@@ -39,18 +39,21 @@ public class AllPathsFromSourceToTarget {
 	
 	public static ArrayList<ArrayList<Integer>> allPaths(int[][] graph) {
 		ArrayList<ArrayList<Integer>> allPaths = new ArrayList<>();
-		for (int neighbors : graph[0]) {
+		
+		for (int neighbor : graph[0]) {
 			ArrayList<Integer> path = new ArrayList<>();
 			path.add(0);
-			path.add(neighbors);
-			getPath(graph, neighbors, graph.length - 1, path, allPaths);
+			path.add(neighbor);
+			getPath(graph, neighbor, graph.length - 1, path, allPaths);
 		}
+		
 		return allPaths;
 	}
 	
 	public static void main(String[] args) {
 		int[][] graph = {{4, 3, 1}, {3, 2, 4}, {3}, {4}, {}};
 		ArrayList<ArrayList<Integer>> allPaths = allPaths(graph);
+		
 		for (ArrayList<Integer> path : allPaths) {
 			System.out.println(path);
 		}

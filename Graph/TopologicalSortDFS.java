@@ -5,8 +5,8 @@ Topological sorting is used only for DAGs (not for non-DAGs).
 
 Topological Sort works on Dependency Graph.
 
-It is a linear order of vertices such that every directed edge u -> v,
-the vertex u comes before v in the order.
+It is a linear order of vertices such that every directed edge u -> v implies that the vertex u
+comes before v in the order.
 
 Time Complexity of Topological Sort: O(V + E).
 
@@ -40,14 +40,15 @@ public class TopologicalSortDFS {
 		graph[5].add(new Edge(5, 2));
 	}
 	
-	public static void topologicalSortUtil(ArrayList<Edge>[] graph, boolean[] vis,
-	                                       Stack<Integer> s, int curr) {
+	static void topSortUtil(ArrayList<Edge>[] g, boolean[] vis, Stack<Integer> s, int curr) {
 		vis[curr] = true;
-		for (Edge e : graph[curr]) {
+		
+		for (Edge e : g[curr]) {
 			if (!vis[e.dest]) {
-				topologicalSortUtil(graph, vis, s, e.dest);
+				topSortUtil(g, vis, s, e.dest);
 			}
 		}
+		
 		s.push(curr);
 	}
 	
@@ -57,7 +58,7 @@ public class TopologicalSortDFS {
 		
 		for (int i = 0; i < V; i++) {
 			if (!vis[i]) {
-				topologicalSortUtil(graph, vis, s, i);
+				topSortUtil(graph, vis, s, i);
 			}
 		}
 		

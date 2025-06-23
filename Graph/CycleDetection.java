@@ -1,18 +1,21 @@
 /*
-For Cycle Detection in Undirected Graph, following can be used:
+For Cycle Detection in Undirected Graph, the following can be used:
 	1. DFS
 	2. BFS
 	3. DSU (Disjoint Set Union)
 
-For Cycle Detection in Directed Graph, following can be used:
+For Cycle Detection in Directed Graph, the following can be used:
 	1. DFS
 	2. BFS
 	3. Topological Sort (Kahn's Algorithm)
+
 */
 
 package Graph;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class CycleDetection {
 	// Create Directed Graph
@@ -30,37 +33,50 @@ public class CycleDetection {
 		graph[3].add(new Edge(3, 0));
 	}
 	
-	// Detect Cycle in Undirected Graph using DFS
-	public static boolean isCycleUndDFSUtil(ArrayList<Edge>[] graph, boolean[] vis,
-	                                        int curr, int par) {
+	// Cycle Detection for Undirected Graph using DFS
+	public static boolean hasCycleUndDFS(ArrayList<Edge>[] graph, int V) {
+		boolean[] vis = new boolean[V];
+		
+		for (int i = 0; i < V; i++) {
+			if (!vis[i] && hasCycleUndDFSUtil(graph, vis, i, -1)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	static boolean hasCycleUndDFSUtil(ArrayList<Edge>[] g, boolean[] vis, int curr, int par) {
 		vis[curr] = true;
-		for (Edge e : graph[curr]) {
+		
+		for (Edge e : g[curr]) {
 			if (!vis[e.dest]) {
-				return isCycleUndDFSUtil(graph, vis, e.dest, curr);
+				hasCycleUndDFSUtil(g, vis, e.dest, curr);
 			} else if (vis[e.dest] && e.dest != par) {
 				return true;
 			}
 		}
+		
 		return false;
 	}
 	
-	public static boolean isCycleUndDFS(ArrayList<Edge>[] graph, int V) {
+	// Cycle Detection for Undirected Graph using BFS
+	public static boolean hasCycleUndBFS(ArrayList<Edge>[] graph, int V) {
 		boolean[] vis = new boolean[V];
+		
 		for (int i = 0; i < V; i++) {
-			if (!vis[i]) {
-				if (isCycleUndDFSUtil(graph, vis, i, -1)) {
-					return true;
-				}
+			if (!vis[i] && hasCycleUndBFSUtil(graph, vis, i)) {
+				return true;
 			}
 		}
+		
 		return false;
 	}
 	
-	// Detect Cycle in Undirected Graph using BFS
-	public static boolean isCycleUndBFSUtil(ArrayList<Edge>[] graph, boolean[] vis,
-	                                        int src) {
+	public static boolean hasCycleUndBFSUtil(ArrayList<Edge>[] graph, boolean[] vis, int src) {
 		Queue<Integer> q = new LinkedList<>();
 		q.offer(src);
+		
 		while (!q.isEmpty()) {
 			int curr = q.poll();
 			if (vis[curr]) {
@@ -68,47 +84,81 @@ public class CycleDetection {
 			}
 			vis[curr] = true;
 			for (Edge e : graph[curr]) {
-				q.offer(e.dest);
+				if (!vis[e.dest]) {
+					q.offer(e.dest);
+				}
 			}
 		}
+		
 		return false;
 	}
 	
-	public static boolean isCycleUndBFS(ArrayList<Edge>[] graph, int V) {
+	// Cycle Detection for Directed Graph using DFS
+	public static boolean hasCycleDirDFS(ArrayList<Edge>[] graph, int V) {
 		boolean[] vis = new boolean[V];
+		boolean[] stack = new boolean[V];
+		
 		for (int i = 0; i < V; i++) {
-			if (!vis[i]) {
-				return isCycleUndBFSUtil(graph, vis, i);
+			if (!vis[i] && hasCycleDirDFSUtil(graph, vis, stack, i)) {
+				return true;
 			}
 		}
+		
 		return false;
 	}
 	
-	// Detect Cycle in Directed Graph using DFS
-	public static boolean isCycleDirDFSUtil(ArrayList<Edge>[] graph, boolean[] stack,
-	                                         boolean[] vis, int curr) {
+	static boolean hasCycleDirDFSUtil(ArrayList<Edge>[] g, boolean[] vis, boolean[] stack,
+	                                  int curr) {
 		vis[curr] = true;
 		stack[curr] = true;
-		for (Edge e : graph[curr]) {
+		
+		for (Edge e : g[curr]) {
 			if (stack[e.dest]) {
 				return true;
 			}
-			if (!vis[e.dest] && isCycleDirDFSUtil(graph, stack, vis, e.dest)) {
+			if (!vis[e.dest] && hasCycleDirDFSUtil(g, stack, vis, e.dest)) {
 				return true;
 			}
 		}
+		
 		stack[curr] = false;
 		return false;
 	}
 	
-	public static boolean isCycleDirectedDFS(ArrayList<Edge>[] graph, int V) {
-		boolean[] stack = new boolean[V];
+	// Cycle Detection for Directed Graph using BFS
+	public static boolean hasCycleDirBFS(ArrayList<Edge>[] graph, int V) {
 		boolean[] vis = new boolean[V];
+		
 		for (int i = 0; i < V; i++) {
-			if (!vis[i]) {
-				return isCycleDirDFSUtil(graph, stack, vis, i);
+			if (!vis[i] && hasCycleDirBFSUtil(graph, V, vis, i)) {
+				return true;
 			}
 		}
+		
+		return false;
+	}
+	
+	static boolean hasCycleDirBFSUtil(ArrayList<Edge>[] g, int V, boolean[] vis, int src) {
+		boolean[] stack = new boolean[V];
+		Queue<Integer> q = new LinkedList<>();
+		q.offer(src);
+		
+		while (!q.isEmpty()) {
+			int curr = q.poll();
+			if (!vis[curr]) {
+				vis[curr] = true;
+				stack[curr] = true;
+				for (Edge e : g[curr]) {
+					if (stack[e.dest]) {
+						return true;
+					}
+					if (!vis[e.dest]) {
+						q.offer(e.dest);
+					}
+				}
+			}
+		}
+		
 		return false;
 	}
 	
@@ -123,26 +173,25 @@ public class CycleDetection {
 		 *   2 --- 4
 		 */
 		
-		int V = 7;
-		
 		// Create Undirected Graph
+		int V = 7;
 		@SuppressWarnings("unchecked")
 		ArrayList<Edge>[] graph = new ArrayList[V];
 		Graphs.createGraph(graph, V);
 		
-		System.out.print("Cycle Detection for Undirected graph using DFS: ");
-		System.out.println(isCycleUndDFS(graph, V) + "\n");
+		System.out.println("\nDetect Cycle in Undirected Graph:");
+		System.out.println("\tUsing DFS: " + hasCycleUndDFS(graph, V));
+		System.out.println("\tUsing BFS: " + hasCycleUndBFS(graph, V));
 		
-		System.out.print("Cycle Detection for Undirected graph using BFS: ");
-		System.out.println(isCycleUndBFS(graph, V) + "\n");
-		
-		
+		// Cycle Detection for Directed graph
 		// Create Directed Graph
 		V = 4;
 		@SuppressWarnings("unchecked")
-		ArrayList<Graph.Edge>[] graphDirected = new ArrayList[V];
+		ArrayList<Edge>[] graphDirected = new ArrayList[V];
 		createGraphDirected(graphDirected, V);
-		System.out.println("Detect Cycle in Directed Graph using DFS: " +
-				isCycleDirectedDFS(graphDirected, V));
+		
+		System.out.println("\nDetect Cycle in Directed Graph:");
+		System.out.println("\tUsing DFS: " + hasCycleDirDFS(graphDirected, V));
+		System.out.println("\tUsing BFS: " + hasCycleDirBFS(graphDirected, V));
 	}
 }

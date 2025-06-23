@@ -11,4 +11,11 @@ public class NodeInfo {
         this.min = min;
         this.max = max;
     }
+
+    public NodeInfo(boolean isBst, int sum, int min, int max) {
+        this.isBST = isBst;
+        this.sum = sum;
+        this.min = min;
+        this.max = max;
+    }
 }

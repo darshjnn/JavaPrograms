@@ -341,6 +341,7 @@ public class BinarySearchTree {
     }
 
     // Size and Sum of the largest BST in Binary Tree
+    // Valid only for Positive data in the Nodes
     public NodeInfo largestBST(Node root) {
         if (root == null) {
             return new NodeInfo(true, 0, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);

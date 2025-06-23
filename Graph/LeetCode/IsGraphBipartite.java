@@ -30,7 +30,7 @@ Explanation: We can partition the nodes into two sets: {0, 2} and {1, 3}.
 
 package Graph.LeetCode;
 
-import java.util.*;
+import java.util.Arrays;
 
 public class IsGraphBipartite {
 	private static boolean checkBipartite(int[][] graph, int[] color, int curr) {
@@ -63,9 +63,7 @@ public class IsGraphBipartite {
 	}
 	
 	public static void main(String[] args) {
-//		int[][] graph = {{1, 2, 3}, {0, 2}, {0, 1, 3}, {0, 2}};
-//		int[][] graph = {{1,3}, {0, 2}, {1,3}, {0, 2}};
-		int[][] graph = {{1, 2}, {0, 3}, {0, 4}, {1, 5, 4}, {2, 5,3}, {3, 4, 6}, {5}};
+		int[][] graph = {{1, 2}, {0, 3}, {0, 4}, {1, 5, 4}, {2, 5, 3}, {3, 4, 6}, {5}};
 		System.out.println("Is Graph Bipartite?: " + isBipartite(graph));
 	}
 }

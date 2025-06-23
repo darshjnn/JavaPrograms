@@ -10,8 +10,7 @@ import java.util.*;
 
 public class AllPaths {
 //	 Print All Paths From Source To Destination in Directed Graph
-	public static void allPathsDirected(ArrayList<Edge>[] graph, int src, int dest,
-	                                    String path) {
+	static void allPathsDirected(ArrayList<Edge>[] graph, int src, int dest, String path) {
 		if (src == dest) {
 			System.out.println(path);
 			return;
@@ -33,7 +32,7 @@ public class AllPaths {
 		for (Edge e : graph[src]) {
 			if (!vis[e.dest]) {
 				vis[src] = true;
-				allPathsUndirected(graph, e.dest, dest, path + " ->" + e.dest, vis);
+				allPathsUndirected(graph, e.dest, dest, path + " -> " + e.dest, vis);
 				vis[src] = false;
 			}
 		}

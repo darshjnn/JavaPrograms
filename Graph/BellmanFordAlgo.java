@@ -1,8 +1,8 @@
 /*
 Bellman Ford Algorithm
 
-Bellman Ford algorithm works even for the cases where Dijkstra's Algorithm fails, i.e. for negative
-weights of the edges.
+Bellman Ford algorithm works even for the cases where Dijkstra's Algorithm fails, i.e., for
+negative weights of the edges.
 
 It uses Dynamic Programming.
 
@@ -10,14 +10,15 @@ Time complexity of Bellman Ford Algorithm is more than Dijkstra Algorithm.
 
 Time Complexity is O(E.V).
 
-Bellman Ford fails for negative destination cycles, i.e. when total destination of graph cycle is
-negative.
+Bellman Ford fails for negative destination cycles, i.e., when the total destination of graph
+cycle is negative.
 
 */
 
 package Graph;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BellmanFordAlgo {
 	public static void createGraph(ArrayList<Edge>[] graph, int V) {
@@ -45,9 +46,9 @@ public class BellmanFordAlgo {
 //	    Total Time Complexity: O(V*E)
 //      Time Complexity of Outer most loop: O(V)
 		for (int i = 0; i < V; i++) {
-			for (ArrayList<Edge> node : graph) {
+			for (ArrayList<Edge> edges : graph) {
 //              Time Complexity of inner loop: O(E)
-				for (Edge e : node) {
+				for (Edge e : edges) {
 					if (dist[e.src] != Integer.MAX_VALUE && dist[e.dest] > dist[e.src] + e.wt) {
 						dist[e.dest] = dist[e.src] + e.wt;
 					}
@@ -55,9 +56,9 @@ public class BellmanFordAlgo {
 			}
 		}
 		
-		System.out.println("Minimum distance from " + src + " to all the nodes:");
-		for (int i : dist) {
-			System.out.print(i + " ");
+		System.out.println("Node\tDistance");
+		for (int i = 0; i < V; i++) {
+			System.out.println(" " + i + "  \t  " + dist[i]);
 		}
 	}
 	
@@ -67,6 +68,8 @@ public class BellmanFordAlgo {
 		ArrayList<Edge>[] graph = new ArrayList[V];
 		createGraph(graph, V);
 		
-		bellmanFordAlgo(graph, V, 0);
+		int src = 4;
+		System.out.println("Minimum distance from " + src + " to all the nodes:");
+		bellmanFordAlgo(graph, V, src);
 	}
 }

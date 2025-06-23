@@ -2,8 +2,8 @@
 Prim Algorithm
 
 A minimum spanning tree (MST) or minimum weight spanning tree is a subset of the edges of a
-connected, edge-weighted undirected graph that connects all the vertices together, without any
-cycles and with the minimum possible total edge weight.
+connected, edge-weighted undirected graph that connects all the vertices, without any cycles and
+with the minimum possible total-edge weight.
 
 Time Complexity: E(logE)
 
@@ -11,9 +11,8 @@ Time Complexity: E(logE)
 
 package Graph;
 
-import java.util.*;
-
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 public class PrimAlgorithm {
 	public static void createGraph(ArrayList<Edge>[] graph, int V) {
@@ -26,33 +25,34 @@ public class PrimAlgorithm {
 		graph[0].add(new Edge(0, 3, 30));
 		
 		graph[1].add(new Edge(1, 0, 10));
-		graph[1].add(new Edge(1, 3, 40));
+		graph[1].add(new Edge(1, 3, 5));
 		
 		graph[2].add(new Edge(2, 0, 15));
 		graph[2].add(new Edge(2, 3, 50));
 		
-		graph[3].add(new Edge(3, 1, 40));
+		graph[3].add(new Edge(3, 1, 5));
 		graph[3].add(new Edge(3, 2, 50));
 	}
 	
 	public static void primAlgo(ArrayList<Edge>[] graph, int V) {
+		int cost = 0;
 		boolean[] vis = new boolean[V];
-		PriorityQueue<Pair> pq = new PriorityQueue<>();
 		ArrayList<Edge> mst = new ArrayList<>();
-		int mstCost = 0;
+		PriorityQueue<Node> pq = new PriorityQueue<>();
 		
-		pq.offer(new Pair(0, 0, 0));
+		pq.offer(new Node(0, 0, 0));
+		
 		while (!pq.isEmpty()) {
-			Pair curr = pq.poll();
+			Node curr = pq.poll();
 			if (!vis[curr.dest]) {
 				vis[curr.dest] = true;
 				
-				mstCost += curr.wt;
+				cost += curr.wt;
 				mst.add(new Edge(curr.src, curr.dest, curr.wt));
 				
-				for (Edge e : graph[curr.src]) {
+				for (Edge e : graph[curr.dest]) {
 					if (!vis[e.dest]) {
-						pq.offer(new Pair(e.src, e.dest, e.wt));
+						pq.offer(new Node(e.src, e.dest, e.wt));
 					}
 				}
 			}
@@ -63,7 +63,7 @@ public class PrimAlgorithm {
 		for (Edge e : mst) {
 			System.out.println("\t" + e.src + "\t\t" + e.dest + "\t\t" + e.wt);
 		}
-		System.out.println("Minimum cost: " + mstCost);
+		System.out.println("Minimum cost: " + cost);
 	}
 	
 	public static void main(String[] args) {
@@ -75,16 +75,16 @@ public class PrimAlgorithm {
 		primAlgo(graph, V);
 	}
 	
-	public static class Pair implements Comparable<Pair> {
+	public static class Node implements Comparable<Node> {
 		int src, dest, wt;
 		
-		public Pair(int src, int dest, int wt) {
+		public Node(int src, int dest, int wt) {
 			this.src = src;
 			this.dest = dest;
 			this.wt = wt;
 		}
 		
-		public int compareTo(Pair p) {
+		public int compareTo(Node p) {
 			return this.wt - p.wt;  // For ascending sorting
 		}
 	}

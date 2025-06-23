@@ -78,9 +78,9 @@ public class EventualSafeStates {
     public static void main(String[] args) {
         int[][] graph = { { 1, 2 }, { 2, 3 }, { 5 }, { 0 }, { 5 }, {}, {} };
         List<Integer> safeNode =  eventualSafeNodes(graph);
-        
-        for (int i = 0; i < safeNode.size(); i++) {
-            System.out.print(safeNode.get(i) + " ");
-        } 
+	    
+	    for (Integer integer : safeNode) {
+		    System.out.print(integer + " ");
+	    }
     }
 }

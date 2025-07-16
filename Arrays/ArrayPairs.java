@@ -1,5 +1,5 @@
 /*
-Print all possible pairs of elements of Array
+Print all possible pairs of elements in Array
 
 Total n0. of pairs = n(n - 1) / 2
 */

@@ -5,8 +5,8 @@ Given a bar of chocolate composed of m x n square pieces. One should break the c
 into single squares. Each break of a part of the chocolate is charged a cost expressed by a
 positive integer. This cost does not depend on the size of the part that is being broken but
 only depends on the line the break goes along. Let us denote the costs of breaking along 
-consecutive vertical lines with x1, x2, ... , xm-1 and along horizontal lines with 
-y1, y2, ... , yn-1.
+consecutive vertical lines with x1, x2, ..., xm-1 and along horizontal lines with
+y1, y2, ..., yn-1.
 
 Compute the minimal cost of breaking the whole chocolate into single squares.
 
@@ -21,7 +21,7 @@ public class ChocolaProblem {
     public static int minCost(Integer[] verCost, Integer[] horCost) {
         int cost = 0;
 
-        // Sort vertical & horizontal cut costs in decreasing order.
+        // Sort vertical and horizontal cut costs in decreasing order.
         Arrays.sort(verCost, Collections.reverseOrder());
         Arrays.sort(horCost, Collections.reverseOrder());
 

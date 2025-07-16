@@ -9,7 +9,9 @@ Time Complexity: E(logE)
 
 */
 
-package Graph;
+package Graph.Algorithms;
+
+import Graph.Edge;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;

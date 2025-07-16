@@ -87,7 +87,7 @@ public class SimplifyPath {
         /*
         A Simpler way:
         
-        for (String c : stack) {
+        for (String c: stack) {
         result.append(c);
         result.append("/");
         }

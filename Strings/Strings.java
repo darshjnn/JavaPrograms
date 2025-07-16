@@ -3,10 +3,11 @@ Strings are IMMUTABLE, because of Interning.
 
 If a string is modified, then it takes O(n * m) time,
 where n = length of string
-	  m = number of times a character is added
+	  m = number of times a character is added;
 This is because, for each modification, a new string has to be created.
 
 */
+
 package Strings;
 
 import java.util.Scanner;
@@ -24,7 +25,7 @@ public class Strings {
 		}
 		
 		// DO NOT USE == to check for string equality
-		// Gives correct answer here
+		// Gives the correct answer here
 		if (name1 == name2) {
 			System.out.println("OMG!, Equal");
 		} else {
@@ -97,7 +98,7 @@ public class Strings {
 		/*
 		Time Complexity: O(n * N)
 			where,  n = length of largest string
-				    N = length of string array
+				    N = length of the string array
 		*/
 		for (String s : strArr) {
 			if (largest.compareToIgnoreCase(s) < 0) {

@@ -15,7 +15,9 @@ Time Complexity of Kosaraju's Algorithm comes out to be  O(V + E).
 
 */
 
-package Graph;
+package Graph.Algorithms;
+
+import Graph.Edge;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -37,13 +39,12 @@ public class KosarajuAlgorithm {
 	}
 	
 	// Topological Sort
-	public static void topologicalSort(ArrayList<Edge>[] graph, boolean[] vis,
-	                                   Stack<Integer> s, int curr) {
+	static void topologicalSort(ArrayList<Edge>[] g, boolean[] vis,	Stack<Integer> s, int curr) {
 		vis[curr] = true;
 		
-		for (Edge e : graph[curr]) {
+		for (Edge e : g[curr]) {
 			if (!vis[e.dest]) {
-				topologicalSort(graph, vis, s, e.dest);
+				topologicalSort(g, vis, s, e.dest);
 			}
 		}
 		
@@ -89,14 +90,13 @@ public class KosarajuAlgorithm {
 		}
 		
 		// Step 3: DFS on Transposed Graph
-		int count = 0, components = 0;
+		int components = 0;
 		while (!s.isEmpty()) {
-			++count;
 			int curr = s.pop();
 			
 			if (!vis[curr]) {
 				++components;
-				System.out.print("Strongly Connected Component " + count + ": ");
+				System.out.print("Strongly Connected Component " + components + ": ");
 				dfs(transpose, vis, curr);
 				System.out.println();
 			}

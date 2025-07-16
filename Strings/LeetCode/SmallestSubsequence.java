@@ -17,37 +17,36 @@ Output: "acdb"
 package Strings.LeetCode;
 
 public class SmallestSubsequence {
-    public static String smallestSubsequence(String str) {
-        int n = str.length();
-        int[] count = new int[26];
-        boolean[] flag = new boolean[26];
-
-        for (int i = 0; i < n; i++) {
-            ++count[str.charAt(i) - 'a'];
-        }
-
-        StringBuilder result = new StringBuilder();
-
-        for (int i = 0; i < n; i++) {
-            char c = str.charAt(i);
-            --count[c - 'a'];
-            if (!flag[c - 'a']) {
-                while (!result.isEmpty() && c < result.charAt(result.length() - 1) &&
-                        count[result.charAt(result.length() - 1) - 'a'] > 0) {
-                    flag[result.charAt(result.length() - 1) - 'a'] = false;
-                    result.deleteCharAt(result.length() - 1);
-                }
-
-                flag[c - 'a'] = true;
-                result.append(c);
-            }
-        }
-
-        return result.toString();
-    }
-
-    public static void main(String[] args) {
-        String str = "cbacdcbc";
-        System.out.println(smallestSubsequence(str));
-    }
+	public static String smallestSubsequence(String str) {
+		StringBuilder result = new StringBuilder();
+		int[] count = new int[26];
+		boolean[] flag = new boolean[26];
+		
+		// Count instances of each character
+		for (char ch : str.toCharArray()) {
+			++count[ch - 'a'];
+		}
+		
+		// Find the lexicographically smallest subsequence
+		for (char ch :  str.toCharArray()) {
+			--count[ch - 'a'];
+			if (!flag[ch - 'a']) {
+				while (!result.isEmpty() && ch < result.charAt(result.length() - 1) &&
+						count[result.charAt(result.length() - 1) - 'a'] > 0) {
+					flag[result.charAt(result.length() - 1) - 'a'] = false;
+					result.deleteCharAt(result.length() - 1);
+				}
+				
+				flag[ch - 'a'] = true;
+				result.append(ch);
+			}
+		}
+		
+		return result.toString();
+	}
+	
+	public static void main(String[] args) {
+		String str = "cbacdcbc";
+		System.out.println(smallestSubsequence(str));
+	}
 }

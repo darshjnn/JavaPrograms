@@ -1,10 +1,12 @@
 /*
+Shortest Path
+
 Given a route containing 4 directions (E, W, N, S),
 Find the shortest path to reach destination.
-Take East as positive x direction.
-Take West as negative x direction.
-Take North as positive y direction.
-Take South as negative y direction.
+Take East as a positive-x direction.
+Take West as a negative-x direction.
+Take North as a positive-y direction.
+Take South as a negative-y direction.
 
 Example 1:
 directions = "WNEENESENNN"

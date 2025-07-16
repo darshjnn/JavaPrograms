@@ -1,7 +1,7 @@
 package Graph;
 
 public class Edge {
-	int src, dest, wt;
+	public int src, dest, wt;
 	
 	public Edge(int source, int dest) {
 		this.src = source;

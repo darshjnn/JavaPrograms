@@ -15,12 +15,14 @@ cycle is negative.
 
 */
 
-package Graph;
+package Graph.Algorithms;
+
+import Graph.Edge;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class BellmanFordAlgo {
+public class BellmanFordAlgorithm {
 	public static void createGraph(ArrayList<Edge>[] graph, int V) {
 		for (int i = 0; i < V; i++) {
 			graph[i] = new ArrayList<>();

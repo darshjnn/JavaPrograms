@@ -15,7 +15,10 @@ boolean[] vis is required.
 
 */
 
-package Graph;
+package Graph.Algorithms;
+
+import Graph.Edge;
+import Graph.TopologicalSortDFS;
 
 import java.util.*;
 

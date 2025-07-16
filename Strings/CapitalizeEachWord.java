@@ -1,7 +1,7 @@
 /*
 Capitalize Each Word
 
-For a given String convert each the first letter of each word to uppercase.
+For a given String, convert the first letter of each word to uppercase.
 
 */
 

@@ -8,7 +8,9 @@ If Priority Queue is not used, then Time Complexity will be O(V^2).
 
 */
 
-package Graph;
+package Graph.Algorithms;
+
+import Graph.Edge;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;

@@ -29,6 +29,10 @@ package Strings.LeetCode;
 
 public class ValidPalindrome {
 	public static boolean isPalindrome(String s) {
+		if (s.isBlank()) {
+			return true;
+		}
+		
 		String str = s.toLowerCase();
 		int n = str.length();
 		
@@ -59,7 +63,7 @@ public class ValidPalindrome {
 	
 	public static void main(String[] args) {
 //		String s = "A man, a plan, a canal: Panama";
-		String s = ", j, :j";
+		String s = ", j, :J";
 		System.out.println(isPalindrome(s));
 	}
 }

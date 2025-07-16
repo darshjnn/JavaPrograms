@@ -25,7 +25,7 @@ course 1. So it is impossible.
 
 package Graph.LeetCode;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class CourseSchedule {
 	
@@ -52,8 +52,8 @@ public class CourseSchedule {
 		return true;
 	}
 	
-	public static boolean directedCycleDetect(ArrayList<ArrayList<Integer>> adj, int index, boolean[] visited,
-	                                          boolean[] helper) {
+	public static boolean directedCycleDetect(ArrayList<ArrayList<Integer>> adj, int index,
+	                                          boolean[] visited, boolean[] helper) {
 		visited[index] = true;
 		helper[index] = true;
 		ArrayList<Integer> neighbours = adj.get(index);

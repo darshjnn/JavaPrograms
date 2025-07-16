@@ -40,14 +40,14 @@ public class NQueens {
 			}
 		}
 		
-		// Diagonal Up Right
+		// Diagonal Up-Right
 		for (int i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++) {
 			if (board[i][j] == 'Q') {
 				return false;
 			}
 		}
 		
-		// Diagonal Up Left
+		// Diagonal Up-Left
 		for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
 			if (board[i][j] == 'Q') {
 				return false;
@@ -59,18 +59,19 @@ public class NQueens {
 	
 	public static void solve(char[][] board, List<List<String>> result, int row) {
 		if (row >= board.length) {
-			StringBuilder s = new StringBuilder();
+			StringBuilder sb = new StringBuilder();
 			List<String> temp = new ArrayList<>();
+			
 			for (char[] chars : board) {
 				for (int j = 0; j < board.length; j++) {
 					if (chars[j] == 'Q') {
-						s.append(chars[j]);
+						sb.append(chars[j]);
 					} else {
-						s.append('.');
+						sb.append('.');
 					}
 				}
-				temp.add(s.toString());
-				s = new StringBuilder();
+				temp.add(sb.toString());
+				sb = new StringBuilder();
 			}
 			
 			result.add(temp);
@@ -98,6 +99,7 @@ public class NQueens {
 	public static void main(String[] args) {
 		int n = 4;
 		List<List<String>> board = solveNQueens(n);
+		
 		System.out.println(board);
 	}
 }

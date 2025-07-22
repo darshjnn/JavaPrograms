@@ -64,18 +64,18 @@ public class Heaps {
 	
 	// Peek returns the minimum element, which is the top of Tree and fist element of Array
 	public int peek(ArrayList<Integer> heap) {
-		return heap.get(0);
+		return heap.getFirst();
 	}
 	
 	// Removing the element;
 	public int delete(ArrayList<Integer> heap) {
 		// Step 1: Swap with the last element; O(1) time
-		int temp = heap.get(0);
-		heap.set(0, heap.get(heap.size() - 1));
+		int temp = heap.getFirst();
+		heap.set(0, heap.getLast());
 		heap.set(heap.size() - 1, temp);
 		
 		// Step 2: Deleting the last element; O(1) time
-		heap.remove(heap.size() - 1);
+		heap.removeLast();
 		
 		// Step 3: Heapify; O(logn) time
 		this.heapify(heap, 0);

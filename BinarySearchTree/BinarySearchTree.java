@@ -210,7 +210,7 @@ public class BinarySearchTree {
         this.getPaths(root.left, path, paths);
         this.getPaths(root.right, path, paths);
 
-        path.remove(path.size() - 1);
+        path.removeLast();
     }
 
     // Validate a Binary Search Tree

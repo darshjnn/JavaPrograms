@@ -18,44 +18,63 @@ Ans: C, A
 package GreedyAlgo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class JobSequencing {
-    static class Job {
-        int index, deadline, profit;
-
-        Job(int index, int deadline, int profit) {
-            this.index = index;
-            this.deadline = deadline;
-            this.profit = profit;
-        }
-    }
-
-    public static int jobSequence(int[][] jobs) {
-        ArrayList<Job> jobArray = new ArrayList<>();
-        for (int i = 0; i < jobs.length; i++) {
-            jobArray.add(new Job(i, jobs[i][0], jobs[i][1]));
-        }
-
-        // Sorting Jobs based on their Profit in Descending order.
-        jobArray.sort((a, b) -> (b.profit - a.profit));
-
-        int time = 0, profit = 0;
-        ArrayList<Integer> sequence = new ArrayList<>();
-        for (Job job : jobArray) {
-            if (job.deadline > time) {
-                ++time;
-                profit += job.profit;
-                sequence.add(job.index);
-            }
-        }
-
-        System.out.println("Job Sequence: " + sequence);
-
-        return profit;
-    }
-
-    public static void main(String[] args) {
-        int[][] jobs = { { 4, 20 }, { 1, 10 }, { 1, 40 }, { 1, 30 } };
-        System.out.println("Profit: " + jobSequence(jobs));
-    }
+	public static int jobSequence(int[][] jobs) {
+		ArrayList<Job> jobArray = new ArrayList<>();
+		for (int i = 0; i < jobs.length; i++) {
+			jobArray.add(new Job(i, jobs[i][0], jobs[i][1]));
+		}
+		
+		// Sorting Jobs based on their Profit in Descending order.
+		jobArray.sort((a, b) -> (b.profit - a.profit));
+		
+		// Find the maximum deadline
+		int deadline = 0;
+		for (int[] job : jobs) {
+			deadline = Math.max(deadline, job[0]);
+		}
+		
+		// Maximise the profit
+		int profit = 0;
+		int[] slot = new int[deadline + 1];
+		Arrays.fill(slot, -1);
+		
+		for (Job job : jobArray) {
+			int index = job.deadline;
+			// Find the slot for the job
+			while (index > 0 && slot[index] != -1) {
+				--index;
+			}
+			
+			// No slot found, the job cannot be executed
+			if (index < 0 || slot[index] != -1) {
+				break;
+			}
+			
+			// Else, assign the slot
+			slot[index] = job.index;
+			profit += job.profit;
+		}
+		
+		System.out.println("Jobs: " + Arrays.toString(slot));
+		
+		return profit;
+	}
+	
+	public static void main(String[] args) {
+		int[][] jobs = {{4, 20}, {5, 60}, {6, 70}, {6, 65}, {4, 25}, {2, 80}, {2, 10}, {2, 22}};
+		System.out.println("Profit: " + jobSequence(jobs));
+	}
+	
+	static class Job {
+		int index, deadline, profit;
+		
+		Job(int index, int deadline, int profit) {
+			this.index = index;
+			this.deadline = deadline;
+			this.profit = profit;
+		}
+	}
 }

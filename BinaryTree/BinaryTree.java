@@ -351,7 +351,7 @@ public class BinaryTree {
             return true;
         }
 
-        path.remove(path.size() - 1);
+        path.removeLast();
         return false;
     }
 

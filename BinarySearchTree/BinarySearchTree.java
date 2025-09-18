@@ -122,7 +122,7 @@ public class BinarySearchTree {
                 return null;
             }
 
-            // Case 2: Only a Single Child Exists
+            // Case 2: Only Single Child Exists
             if (root.left == null) {
                 return root.right;
             } else if (root.right == null) {

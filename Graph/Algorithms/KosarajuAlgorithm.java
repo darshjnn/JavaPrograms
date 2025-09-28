@@ -3,8 +3,9 @@ Kosaraju Algorithm
 
 It is used to find the Strongly Connected Components in a Directed Graph.
 
-Strongly Connected Component: in which every vertex of the component can be reached from every
-other vertex of that component. It is only for Directed Graph.
+Strongly Connected Component (SCC): in which every vertex of the component can be reached from
+every other vertex of that component. It is only for Directed Graph.
+Every vertex belongs to exactly one SCC (SCCs form a partition of the vertices).
 
 The Algorithm follows 3 steps:
 	1. Get nodes in the Stack (Topological Sort). {Time Complexity: O(V + E)}
@@ -12,6 +13,9 @@ The Algorithm follows 3 steps:
 	3. Perform DFS. {Time Complexity: O(V + E)}
 	
 Time Complexity of Kosaraju's Algorithm comes out to be  O(V + E).
+
+Kosaraju's algorithm for strongly connected components requires two DFS traversals of a Graph.
+Tarjan's algorithm requires only one DFS traversal.
 
 */
 

@@ -54,12 +54,12 @@ public class DisjointSet {
 		int[] parent = new int[n];
 		int[] rank = new int[n];
 		
-		// Initialising: Each element is a parent of itself
+		// Initialisation: Each element is a parent of itself
 		init(n, parent);
 		
 		// Parent and Rank of each element before any operation
-		System.out.println("Parent of all element: " + Arrays.toString(parent));
-		System.out.println("Rank of all element: " + Arrays.toString(rank));
+		System.out.println("Parent of all elements: " + Arrays.toString(parent));
+		System.out.println("Rank of all elements: " + Arrays.toString(rank));
 		System.out.println();
 		
 		// Union of 1 and 3

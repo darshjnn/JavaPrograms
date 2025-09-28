@@ -15,9 +15,9 @@ Tarjan's Algorithm can be used for:
 	3. To find Articulation Point [Time Complexity: O(V+E)]
 	4. To find Strongly connected components
 
-Ancestor: A node A that was discovered before the current node in DFS.
+Ancestor: A node that was discovered before the current node in DFS.
 
-A node may or maybe Articulation point, if it falls under the following two cases:
+A node may be an Articulation point, if it falls under the following two cases:
 	Case 1: parent == -1, i.e. DFS starts with this node, then, this node must have more than 1
 			child nodes & they must be disconnected from each other, i.e., no direct or indirect
 			Edge must be there.
@@ -27,6 +27,9 @@ A node may or maybe Articulation point, if it falls under the following two case
 						not be any Back-edge for the child node.
 
 			Subcase 2: The current node is the root of a cycle.
+
+Tarjan's algorithm requires only one DFS traversal.
+Kosaraju's algorithm for strongly connected components requires two DFS traversals of a Graph.
 
 */
 
@@ -92,7 +95,7 @@ public class TarjanAlgorithm {
 				
 				// Note: (dt[curr] == lt[e.dest]) is the condition for Cycle
 				
-				if (lt[curr] < lt[e.dest]) {
+				if (dt[curr] < lt[e.dest]) {
 					System.out.println("Bridge found from: " + curr + " --- " + e.dest);
 				}
 			} else {

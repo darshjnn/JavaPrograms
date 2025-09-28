@@ -13,6 +13,8 @@ Therefore, Time Complexity of Kruskal's Algorithm is: O(V + ElogE)
 
 package Graph.Algorithms;
 
+import Graph.Edge;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -96,20 +98,5 @@ public class KruskalAlgorithm {
 		
 		int V = 4;
 		System.out.println("MST Cost: " + kruskalAlgo(graph, V));
-	}
-	
-	public static class Edge implements Comparable<Edge> {
-		int src, dest, wt;
-		
-		public Edge(int src, int dest, int wt) {
-			this.src = src;
-			this.dest = dest;
-			this.wt = wt;
-		}
-		
-		@Override
-		public int compareTo(Edge e) {
-			return this.wt - e.wt;
-		}
 	}
 }

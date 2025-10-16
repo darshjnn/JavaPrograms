@@ -23,38 +23,39 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
 
 */
+
 package Arrays.LeetCode;
 
-import java.util.HashMap;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class TwoSum {
-    public static int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-        int n = nums.length;
-
-        for (int i = 0; i < n; i++) {
-            int val = target - nums[i];
-
-            if (!map.containsKey(val)) {
-                map.put(nums[i], i);
-            } else {
-                int index = map.get(val);
-                return new int[] {index, i};
-            }
-        }
-
-        return new int[] {};
-    }
-
-    public static void main(String[] args) {
-        // int[] arr = { 2, 7, 11, 15 };
-        int[] arr = { 3, 2, 4 };
-        int target = 6;
-
-        int[] twoSum = twoSum(arr, target);
-        System.out.println(Arrays.toString(twoSum));
-    }
+	public static int[] twoSum(int[] nums, int target) {
+		HashMap<Integer, Integer> map = new HashMap<>();
+		int n = nums.length;
+		
+		for (int i = 0; i < n; i++) {
+			int val = target - nums[i];
+			
+			if (!map.containsKey(val)) {
+				map.put(nums[i], i);
+			} else {
+				int index = map.get(val);
+				return new int[]{index, i};
+			}
+		}
+		
+		return new int[]{};
+	}
+	
+	public static void main(String[] args) {
+		// int[] arr = { 2, 7, 11, 15 };
+		int[] arr = {3, 2, 4};
+		int target = 6;
+		
+		int[] twoSum = twoSum(arr, target);
+		System.out.println(Arrays.toString(twoSum));
+	}
 }
 
 /*

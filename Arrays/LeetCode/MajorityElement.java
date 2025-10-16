@@ -63,26 +63,3 @@ public class MajorityElement {
 		System.out.println("Majority Element: " + majorityElement(nums));
 	}
 }
-
-/*
-Alternate Solution:
-
-public static int majorityElement(int[] nums) {
-    int count = 0;
-    int element = 0;
-
-    for (int num : nums) {
-        if (count == 0) {
-            element = num;
-            count++;
-        } else if (num == element) {
-            count++;
-        } else {
-            count--;
-        }
-    }
-
-    return element;
-}
-
-*/

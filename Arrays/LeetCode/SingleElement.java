@@ -35,7 +35,7 @@ public class SingleElement {
 			int mid = left + (right - left) / 2;
 			
 			// Ensure mid is even for easy pair comparison
-			if (mid % 2 == -1){
+			if (mid % 2 == 1){
 				mid -= 1;
 			}
 			

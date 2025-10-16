@@ -39,5 +39,6 @@ public class MakeStringGood {
 		Scanner sc = new Scanner(System.in);
 		String str = sc.nextLine();
 		System.out.println(makeStringGood(str));
+		sc.close();
 	}
 }

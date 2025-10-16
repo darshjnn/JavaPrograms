@@ -44,6 +44,7 @@ public class ItineraryFromTickets {
 		return null;
 	}
 	
+	@SuppressWarnings("unused")
 	public static void getItinerary(HashMap<String, String> ticketsFromTo) {
 		String start = getStart(ticketsFromTo);
 		

@@ -101,8 +101,9 @@ public class CountTheNumberOfCompleteComponents {
 				}
 				
 				/*
-				Since every edge is stored twice in the adjacency list (once for each vertex it
-				connects), checking edgeCount = size * (size - 1) is mathematically correct.
+				Since every edge is stored twice in the adjacency list (once for each 
+				vertex it connects), checking edgeCount = size * (size - 1) is 
+				mathematically correct.
 				*/
 				
 				if (edgeCount == size * (size - 1)) {

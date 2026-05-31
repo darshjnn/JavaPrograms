@@ -1,8 +1,9 @@
 /*
 Check if the number is Odd or Even
 
-For Binary numbers, if the number is ODD => The Least Significant Bit = 1
-                    if the number is EVEN => The Least Significant Bit = 0
+For Binary numbers:
+	if the number is ODD => The Least Significant Bit = 1
+    if the number is EVEN => The Least Significant Bit = 0
 
 */
 

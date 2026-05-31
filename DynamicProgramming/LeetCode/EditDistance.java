@@ -1,8 +1,8 @@
 /*
 72. Edit Distance
 
-Given two strings word1 and word2, return the minimum number of operations required to convert
-word1 to word2.
+Given two strings word1 and word2, return the minimum number of operations required to
+convert word1 to word2.
 
 You have the following three operations permitted on a word:
     1. Insert character
@@ -38,7 +38,7 @@ public class EditDistance {
 		int m = s2.length();
 		int[][] dp = new int[n + 1][m + 1];
 		
-		// Initialise Array
+		// Initialize Array
 		// Length of s1 is 0: number of add operations to convert to s2 = length of s2
 		for (int j = 0; j < m + 1; j++) {
 			dp[0][j] = j;

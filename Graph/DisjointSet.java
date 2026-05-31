@@ -16,7 +16,7 @@ package Graph;
 import java.util.Arrays;
 
 public class DisjointSet {
-	//	Initialising: Each element is a parent of itself
+	//	Initializing: Each element is a parent of itself
 	public static void init(int n, int[] parent) {
 		for (int i = 0; i < n; i++) {
 			parent[i] = i;
@@ -54,7 +54,7 @@ public class DisjointSet {
 		int[] parent = new int[n];
 		int[] rank = new int[n];
 		
-		// Initialisation: Each element is a parent of itself
+		// Initialization: Each element is a parent of itself
 		init(n, parent);
 		
 		// Parent and Rank of each element before any operation

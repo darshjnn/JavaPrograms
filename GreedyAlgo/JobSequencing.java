@@ -36,7 +36,7 @@ public class JobSequencing {
 			deadline = Math.max(deadline, job[0]);
 		}
 		
-		// Maximise the profit
+		// Maximize the profit
 		int profit = 0;
 		int[] slot = new int[deadline + 1];
 		Arrays.fill(slot, -1);

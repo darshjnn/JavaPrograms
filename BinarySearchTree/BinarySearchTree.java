@@ -195,7 +195,7 @@ public class BinarySearchTree {
         }
     }
 
-    public void getPaths(Node root, ArrayList<Integer> path, ArrayList<ArrayList<Integer>> paths) {
+    void getPaths(Node root, ArrayList<Integer> path, ArrayList<ArrayList<Integer>> paths) {
         if (root == null) {
             return;
         }

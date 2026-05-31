@@ -49,7 +49,7 @@ public class MergeSort {
             return;
         }
 
-        int mid = si + (ei - si) / 2; // To avoid space complexity issue
+        int mid = si + (ei - si) / 2;
 
         divide(arr, si, mid);
         divide(arr, (mid + 1), ei);

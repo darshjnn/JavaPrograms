@@ -1,12 +1,13 @@
 /*
 Minimum Cost To Connect All Cities
 
-There are n cities and there are roads in between some cities. Somehow, all the roads are damaged
-simultaneously. We have to repair the roads to connect the cities again. There is a fixed cost to
-repair a particular road.
+There are n cities and there are roads in between some cities. Somehow, all the roads are
+damaged simultaneously. We have to repair the roads to connect the cities again. There is a
+fixed cost to repair a particular road.
 
-Input is in the form of edges {u, v, w} where, u and v are city indices. W is the cost to rebuild
-the road between u and v. Print out the minimum cost to connect all the cities by repairing roads.
+Input is in the form of edges {u, v, w} where, u and v are city indices. W is the cost to
+rebuild the road between u and v. Print out the minimum cost to connect all the cities by 
+repairing roads.
 
 Example:
 Input: cities[][] = {{0, 1, 2, 3, 4},

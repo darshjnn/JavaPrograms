@@ -12,6 +12,7 @@ package Graph.Algorithms;
 
 import Graph.Edge;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
@@ -40,11 +41,8 @@ public class DijkstraAlgorithm {
 		boolean[] vis = new boolean[V];
 		int[] dist = new int[V];
 		
-		for (int i = 0; i < V; i++) {
-			if (i != src) {
-				dist[i] = Integer.MAX_VALUE;
-			}
-		}
+		Arrays.fill(dist, Integer.MAX_VALUE);
+		dist[src] = 0;
 		
 		pq.offer(new Pair(src, 0));
 		while (!pq.isEmpty()) {

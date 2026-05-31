@@ -23,6 +23,8 @@ It is used for positive numbers, and where the range of elements in an array is 
 
 package Sorting;
 
+import java.util.Arrays;
+
 public class CountSort {
 	@SuppressWarnings("JavaExistingMethodCanBeUsed")
 	public static void countSort(int[] arr) {
@@ -50,17 +52,13 @@ public class CountSort {
 	public static void main(String[] args) {
 		int[] arr = {5, 6, 2, 7, 3, 1, 8};
 		
-		System.out.println("Original Array: ");
-		for (int i : arr) {
-			System.out.print(i + "  ");
-		}
-		System.out.println("\n");
+		System.out.println("\nOriginal Array: ");
+		System.out.println(Arrays.toString(arr) + "\n");
 		
 		countSort(arr);
 		
 		System.out.println("Sorted Array: ");
-		for (int i : arr) {
-			System.out.print(i + "  ");
-		}
+		System.out.println(Arrays.toString(arr) + "\n");
+
 	}
 }

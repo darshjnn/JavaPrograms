@@ -1,10 +1,10 @@
 /*
-Bridge in a Graph: It is an edge, whose deletion increases number of Graph's number of connected
-					components. It is generally used in Undirected Graphs.
+Bridge in a Graph: It is an edge, whose deletion increases number of Graph's number of
+connected components. It is generally used in Undirected Graphs.
 
-Articulation Point or Cut Vertex: A vertex in an Undirected Graph is an Articulation point
-									(or cut vertex) if removing it (and edges through it)
-									disconnects the Graph.
+Articulation Point or Cut Vertex: 
+A vertex in an Undirected Graph is an Articulation point (or cut vertex) if removing it 
+(and edges through it) disconnects the Graph.
 
 Tarjan's Algorithm is based on DFS.
 Time Complexity: O(V + E)
@@ -18,13 +18,13 @@ Tarjan's Algorithm can be used for:
 Ancestor: A node that was discovered before the current node in DFS.
 
 A node may be an Articulation point, if it falls under the following two cases:
-	Case 1: parent == -1, i.e. DFS starts with this node, then, this node must have more than 1
-			child nodes & they must be disconnected from each other, i.e., no direct or indirect
-			Edge must be there.
+	Case 1: parent == -1, i.e. DFS starts with this node, then, this node must have more 
+			than 1 child nodes & they must be disconnected from each other, i.e., no direct 
+			or indirect Edge must be there.
 
 	Case 2: parent != -1, two subcases arise for this condition:
-			Subcase 1: The next node is not visited, then, for Articulation point, there must
-						not be any Back-edge for the child node.
+			Subcase 1: The next node is not visited, then, for Articulation point, there 
+					   must not be any Back-edge for the child node.
 
 			Subcase 2: The current node is the root of a cycle.
 

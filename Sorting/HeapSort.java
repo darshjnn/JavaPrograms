@@ -8,8 +8,9 @@ Merge Sort & Quick Sort are in general more efficient than Heap Sort.
 To sort the elements in Ascending order, max heap will be required.
 For Descending order, min heap will be required.
 
-Basic Logic: Call the heapify for all the non-leaf nodes.
-			Call heapify for the swapped element also.
+Basic Logic: 
+	1. Call the heapify for all the non-leaf nodes.
+	2. Call heapify for the swapped element also.
 
 */
 

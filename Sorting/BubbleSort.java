@@ -19,8 +19,8 @@ Large element comes to the end of the array by swapping with an adjacent element
 
 Time Complexity: O(n^2).
 
-Swap variable inside the first loop optimizes the Bubble Sort for the best case scenario, viz, for
-the sorted array.
+SwapCount variable inside the first loop optimizes the Bubble Sort for the best case 
+scenario, viz, for the sorted array.
 
 */
 

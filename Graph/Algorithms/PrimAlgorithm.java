@@ -5,7 +5,7 @@ A minimum spanning tree (MST) or minimum weight spanning tree is a subset of the
 connected, edge-weighted undirected graph that connects all the vertices, without any cycles and
 with the minimum possible total-edge weight.
 
-Time Complexity: E(logE)
+Time Complexity: O(E.logE)
 
 */
 

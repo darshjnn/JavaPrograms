@@ -4,8 +4,8 @@ Find the shortest unique prefix for every word in a given list.
 Assume no word is prefix of another.
 
 Example:
-arr[] = {"zebra", "dog", "duck", "dove"}
-ans[] = {"z", "dog", "du", "dov"}
+Input: arr[] = {"zebra", "dog", "duck", "dove"}
+Output: ans[] = {"z", "dog", "du", "dov"}
 
 */
 

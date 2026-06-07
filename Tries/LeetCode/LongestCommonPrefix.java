@@ -22,13 +22,6 @@ import Tries.Nodes.TrieNode;
 import Tries.Trie;
 
 public class LongestCommonPrefix {
-	public static void main(String[] args) {
-		String[] strs = {"flower", "flow", "flight"};
-		
-		System.out.println(longestCommonPrefixTrie(strs));
-		System.out.println(longestCommonPrefixArray(strs));
-	}
-	
 	public static void getLongestCommonPrefix(TrieNode node, StringBuilder prefix, int len) {
 		if (node == null || node.frequency == 1) {
 			return;
@@ -73,5 +66,12 @@ public class LongestCommonPrefix {
 		}
 		
 		return prefix;
+	}
+	
+	public static void main(String[] args) {
+		String[] strs = {"flower", "flow", "flight"};
+		
+		System.out.println(longestCommonPrefixTrie(strs));
+		System.out.println(longestCommonPrefixArray(strs));
 	}
 }

@@ -9,8 +9,8 @@ public class TrieNode {
 	
 	public TrieNode() {
 		this.children = new TrieNode[26];
-		Arrays.fill(children, null);
+		Arrays.fill(this.children, null);
 		this.eow = false;
-		this.frequency = 1;
+		this.frequency = 0;
 	}
 }
